@@ -1,0 +1,53 @@
+body{
+    font-family: 'Mukta', sans-serif;
+}
+.firstSection{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    /* margin-top: 3em;
+    padding: 2em; */
+    background-color: #e1f1ff;
+    width: 40%;
+    height: auto;
+    
+}
+
+.headerRow{
+    background :linear-gradient(180deg,#0077e1 0,#054692);
+    color: white;
+    text-align: center;
+   
+}
+.carsearch{
+   
+    background: url('car.png') no-repeat;
+    background-size: 200px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.vininfo{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.list-table{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.makelist{
+   display: flex;
+   justify-content: center;
+   border-top: 1px solid black;
+   padding: 3px;
+   margin: 3px;
+}
+.loader{
+    vertical-align: 200px;
+}
