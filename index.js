@@ -1,14 +1,11 @@
-import express, { request, response } from 'express';
+import app from './app.js';
 import fetch from 'node-fetch';
-
-const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-app.use(express.json());
-
+/* Get information from Manufacturer api for all pages */
 app.get('/api', async (request, response) => {
-    const allData = [];
+    const allData = []; //to store all pages information
     let pageNo = 1;
     let count = 0;
     try {
@@ -24,34 +21,30 @@ app.get('/api', async (request, response) => {
     } catch {
         console.log("Rejected");
     }
-
-
-
     response.json(allData);
 });
 
 
+/* Get all make of perticular manufacturer  */
 app.get('/make/:id', async (request, response) => {
-    console.log(request.params.id);
+    // console.log(request.params.id);
     const makeurl = `https://vpic.nhtsa.dot.gov/api/vehicles/GetMakeForManufacturer/${request.params.id}?format=json`;
     const makeResponse = await fetch(makeurl);
     const makeData = await makeResponse.json();
     response.json(makeData);
 });
 
-
+/* Get information of vehicle by providing vin number - call to DecodeVin api*/
 app.post('/api', async (request, response) => {
 
     const data = request.body;
-    console.log(data);
+    // console.log(data);
     const decodeVinUrl = `https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVin/${data.vinNo}?format=json`;
     const vinResponse = await fetch(decodeVinUrl);
     const vinData = await vinResponse.json();
-
     response.json(vinData);
 });
 
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-app.use(express.static('public'));

@@ -51,3 +51,9 @@ body{
 .loader{
     vertical-align: 200px;
 }
+.mfrname{
+    cursor: pointer;
+}
+.mfrname:hover{
+    background-color: #dddddd;
+}
