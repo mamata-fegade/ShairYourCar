@@ -6,7 +6,7 @@ function validateInput() {
     const formDiv = document.getElementById("formDiv");
     let expr = /[A-HJ-NPR-Z0-9]{17}/i;
     // console.log(vinNo);
-
+    //regex function test
     if (!expr.test(vinNo.value)) {
         vinNo.classList.add('is-invalid');
         // console.log("Not matched " + vinNo.classList);
@@ -22,7 +22,6 @@ function validateInput() {
     }
 
 }
-
 
 function setup() {
     const button = document.getElementById('submit');
